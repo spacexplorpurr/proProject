@@ -1,0 +1,4 @@
+Lloyd Garm Male 17 1 janitor 32 
+Kai Smith Male 19 2 psychologist 32 
+Cole Rock Male 17 3 gymTeacher 32 
+Chloe Bourgeois female 26 6 Cook 15 

@@ -1,0 +1,4 @@
+Lloyd Garm Male 17 01 janitor 32
+Kai Smith Male 19 02 psychologist 32
+Cole Rock Male 17 03 gymTeacher 32
+
