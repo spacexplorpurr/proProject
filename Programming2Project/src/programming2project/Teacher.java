@@ -39,9 +39,6 @@ public class Teacher extends Person implements Payroll {
 // changed type from Teacher to boolean, it indicates if the teacher is dean or not
     private boolean dean;
 
-    public Teacher() {
-    }
-
     public Teacher(String fname, String lname, String gender, int age, int empID,
             String specialty, String degree, int exp, boolean dean) {
         super(fname, lname, gender, age, empID);

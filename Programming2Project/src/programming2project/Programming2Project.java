@@ -40,7 +40,6 @@ import java.util.Scanner;
 public class Programming2Project {
 
     public static void main(String[] args) {
- 
 //                Deliverable 2 (Implementation)
 //For this deliverable, your repository should contain the following files:
 //• Completed UML Class Diagrams for all classes and interfaces with their relationship
@@ -90,7 +89,7 @@ public class Programming2Project {
         writeTeacherFile("ListOfTeachers.txt", teachers);
         // the codes below test codes in teacher method
 //        System.out.printf("%.2f\n", teachers.get(0).ComputePayRoll());
-System.out.println("");
+        System.out.println("");
         System.out.printf("%s's payroll is %.2f\n", teachers.get(0).getFname(),
                 teachers.get(1).ComputePayRoll());
 //        System.out.printf("%.2f\n", teachers.get(2).ComputePayRoll());
@@ -114,7 +113,7 @@ System.out.println("");
         } catch (InvalidEmpID e) {
             System.out.println(e.getMessage());
         }
-        
+
 //        d.removeStaff(staffs.get(0));//testing if it removes staff
 //        System.out.println(d.getStaffs());
 //        System.out.println(staffs.get(0));
@@ -126,7 +125,7 @@ System.out.println("");
 //        } catch (InvalidEmpID e) {
 //            System.out.println(e.getMessage());
 //        }
-System.out.println("");
+        System.out.println("");
         d.removeTeacher(teachers.get(0));
         System.out.println(d.getTeachers());
     }
@@ -271,18 +270,14 @@ System.out.println("");
      */
     public static ArrayList<Teacher> readTeacherData(String path) {
         File listOfTeachers = new File(path);
+
         ArrayList<Teacher> teachers = new ArrayList<>();
 
         try ( Scanner input = new Scanner(listOfTeachers)) {
-
             while (input.hasNext()) {
-                String row = input.nextLine();//stores a line of data as a string
+                String row = input.nextLine();
 
-                //the line below, seperates the data in a line and stores it in an array
                 String[] teacherInfo = row.split(" ");
-
-                // the codes starting from here stores each data in a seperate variable
-                // and changes the type of the data accordingly
                 String fname = teacherInfo[0];
                 String lname = teacherInfo[1];
                 String gender = teacherInfo[2];
@@ -292,7 +287,6 @@ System.out.println("");
                 String degree = teacherInfo[6];
                 int exp;
                 boolean dean = Boolean.parseBoolean(teacherInfo[8]);
-
                 try {
                     age = Integer.parseInt(teacherInfo[3]);
                 } catch (NumberFormatException e) {
@@ -307,21 +301,18 @@ System.out.println("");
                     exp = Integer.parseInt(teacherInfo[7]);
                 } catch (NumberFormatException e) {
                     exp = -1;
-                }// storing the data in seperate variables ends here
+                }
 
-                // the code below creates a teacher based on the info we extracted 
-                // from the file that was read
-                Teacher t = new Teacher(fname, lname, gender, age, empID, specialty,
-                        degree, exp, dean);
-                teachers.add(t);
-//line above stores a teacher in the array list created at the beginning of this method
-            }
+                Teacher teacher = new Teacher(fname, lname, gender, age, empID, specialty, degree, exp, dean);
+                teachers.add(teacher);
 
-        } catch (IOException e) {//catches exceptions if something went wrong when reading
-            System.out.printf("Something went wrong with the input or output file.");
+                }
+
+            }catch (IOException e) {
+            System.out.println(e);
         }
 
-        return teachers;
-    }
+            return teachers;
+        }
 
-}
+    }
